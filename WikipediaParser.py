@@ -104,10 +104,10 @@ def main(page_name, lang, font):
         fileName = page.title if wikiLang == 'en' or wikiLang == 'all' else page.langlinks['en'].title
         if not page.exists(): raise Exception('Page doesn\'t exist.')
         try:
-            os.chdir('.\\' + fileName)
+            os.chdir(fileName)
         except:
-            os.mkdir('.\\' + fileName)
-            os.chdir('.\\' + fileName)
+            os.mkdir(fileName)
+            os.chdir(fileName)
         if wikiLang == 'all':
             with click.progressbar(iterable = sorted(page.langlinks.items()),
                                    label = 'Creating documents:',
